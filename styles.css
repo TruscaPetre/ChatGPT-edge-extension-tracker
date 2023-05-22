@@ -1,0 +1,23 @@
+/* styles.css: The CSS file for styling the extension. */
+.report-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    max-height: 100%;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 9999;
+  }
+  
+  .report-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .report-date,
+  .report-count {
+    font-size: 14px;
+  }

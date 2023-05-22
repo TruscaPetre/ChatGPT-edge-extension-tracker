@@ -1,0 +1,2 @@
+https://chat.openai.com/c/e3882cb8-3b2b-4bfe-adca-62202ff49624 initial discussion
+https://chat.openai.com/c/8230ab1c-3f44-422b-91f1-46c8795a9c57 transforming it to open source
