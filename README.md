@@ -16,14 +16,16 @@ Based on the logs that are generated when interacting with chatGPT, you can crea
 
 - Clone repository
 - Load extension into browser:
-  - Open the Extensions page by navigating to `chrome://extensions/`
+  - Open the Extensions page by navigating to `edge://extensions`
   - Enable Developer mode
   - Click on "Load unpacked"
   - Select the project folder
+- Make sure to Activate the extension in the Extensions page
+- For easier access show the extension in the sidebar
 
 ## Usage
 
-TODO
+Navigate to [chat.openai.com](https://chat.openai.com/) and after you type a few messages press on the icon of the extension than press on "Generate Report" button.
 
 ## Contributing
 
