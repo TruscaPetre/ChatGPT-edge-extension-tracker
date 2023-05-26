@@ -27,6 +27,10 @@ Based on the logs that are generated when interacting with chatGPT, you can crea
 
 Navigate to [chat.openai.com](https://chat.openai.com/) and after you type a few messages press on the icon of the extension than press on "Generate Report" button.
 
+## Development
+
+After you try to use the extension, you may find error messages in the page `edge://extensions`, near the name of the extension, by clicking the button `Errors`. After you fix those errors to test the fix, first you should clear the page of errors by pressind the button `Clear all`. Than you should return to the `edge://extensions` page, than click on the `reload` button. Now you should test again the extension.
+
 ## Contributing
 
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests.
