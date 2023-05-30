@@ -12,14 +12,9 @@ document.getElementById("generateReport").addEventListener("click", () => {
     }
   });
   
-  // Add context menu item
-  chrome.contextMenus.create({
-    id: "generate_report",
-    title: "Generate Chat Activity Report",
-    contexts: ["page"],
-    documentUrlPatterns: ["https://chat.openai.com/*"]
-  });
+ 
   
+  // Handle context menu clicks
   chrome.contextMenus.onClicked.addListener((info, tab) => {
     if (info.menuItemId === "generate_report") {
       chrome.tabs.sendMessage(tab.id, { action: "generate_report" });

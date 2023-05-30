@@ -3,7 +3,7 @@
   "name": "Chat Activity Tracker",
   "version": "1.0.0",
   "description": "Tracks activity on chat.openai.com and displays a statistical report.",
-  "permissions": ["storage", "activeTab", "scripting", "contextMenus"],
+  "permissions": ["storage", "activeTab", "tans", "scripting", "contextMenus"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
