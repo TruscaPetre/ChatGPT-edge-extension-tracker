@@ -29,11 +29,17 @@ Navigate to [chat.openai.com](https://chat.openai.com/) and after you type a few
 
 ## Development
 
-After you try to use the extension, you may find error messages in the page `edge://extensions`, near the name of the extension, by clicking the button `Errors`. After you fix those errors to test the fix, first you should clear the page of errors by pressind the button `Clear all`. Than you should return to the `edge://extensions` page, than click on the `reload` button. Now you should test again the extension.
+After you try to use the extension, you may find errors.
+One place to find error messages is in the page `edge://extensions`, near the name of the extension. By clicking the button `Errors` you can see more details.
+
+After you fix those errors to test the fix, first you should clear the page of errors by pressind the button `Clear all`. Than you should return to the `edge://extensions` page, than click on the `reload` button. 
+
+Now you should test again the extension. For that please check the [Testing.md](Testing.md)
+
 
 ## Contributing
 
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests.
 
 ## License 
 
