@@ -12,6 +12,11 @@ This document contains instructions for manually testing all aspects of the exte
 
 ## How to test each feature
 
+- Test that the extention is injected
+  - Load a page on https://chat.openai.com
+  - Open browser's developer tools ( F12 or Ctrl+shift+I)
+  - Click on the console tab
+  - You can type "content" in the filter to highlight the log message and hide the others
 - Tracking "send" button. & Tracking "edit & respond" button. Store the data locally.
   - Open https://ai.com
   - Start a new chat
