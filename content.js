@@ -1,3 +1,5 @@
+console.log('content script loaded');
+
 const sendMessageButton = document.querySelector("#send-new-message-button");
 const saveSubmitButton = document.querySelector("#save-submit-button");
 
