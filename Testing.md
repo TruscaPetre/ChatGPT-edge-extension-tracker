@@ -9,14 +9,8 @@ This document contains instructions for manually testing all aspects of the exte
 - Store the data locally.
 - Generate report.
 
-
 ## How to test each feature
 
-- Test that the extention is injected
-  - Load a page on https://chat.openai.com
-  - Open browser's developer tools ( F12 or Ctrl+shift+I)
-  - Click on the console tab
-  - You can type "content" in the filter to highlight the log message and hide the others
 - Tracking "send" button. & Tracking "edit & respond" button. Store the data locally.
   - Open https://ai.com
   - Start a new chat
@@ -37,3 +31,19 @@ This document contains instructions for manually testing all aspects of the exte
 - No button is clicked
 - Button is clicked many times in quick succession
 
+## Development tests
+
+
+- Test that the extention is injected
+  - Load a page on https://chat.openai.com
+  - Open developer tools ( F12 or Ctrl+shift+I, or right click & "Inspect")
+  - Click on the console tab
+  - You can type "content" in the filter to highlight the log message and hide the others
+- Test that content script is correctly referenced in the manifest.json and is loaded when chat page is open
+  - Load a page on https://chat.openai.com
+  - Open developers tools
+  - Click on the "Sources" tab
+  - In the left-hand pane, expand the section "Content Scripts"
+  - Click on your extension's name ("name" from `manifest.json`)
+  - You should see the `content.js` file listed, check it's content
+  - 
