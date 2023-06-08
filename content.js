@@ -27,6 +27,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "generate_report") {
     generateReport();
   }
+  if (request.action === "test"){
+    console.log("Test message received!")
+  }
 });
 
 

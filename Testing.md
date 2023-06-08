@@ -37,7 +37,7 @@ This document contains instructions for manually testing all aspects of the exte
 - Test that the extention is injected
   - Load a page on https://chat.openai.com
   - Open developer tools ( F12 or Ctrl+shift+I, or right click & "Inspect")
-  - Click on the console tab
+  - Click on the "Console" tab
   - You can type "content" in the filter to highlight the log message and hide the others
 - Test that content script is correctly referenced in the manifest.json and is loaded when chat page is open
   - Load a page on https://chat.openai.com
@@ -46,4 +46,11 @@ This document contains instructions for manually testing all aspects of the exte
   - In the left-hand pane, expand the section "Content Scripts"
   - Click on your extension's name ("name" from `manifest.json`)
   - You should see the `content.js` file listed, check it's content
-  - 
+- Test if the message listener in content script is working correctly
+  - Load a page on https://chat.openai.com
+  - Open developers tools
+  - Go to the "Console" tab
+  - Make sure the correct context is selected in the dropdown at the top of the Console tab. It should say something like "top - chat.openai.com" which is the main page context where your content script runs. If it says something like "top - extensions::backgroundPage", that's the background page context, and you need to change it.
+  - In the console run this command: `chrome.runtime.sendMessage({action: "test"});`
+  - You should see "Test message received!" in the console.
+    - If you have other extensions installed that use message passing, they could potentially interfere with this test. If you see strange results, try disabling other extensions.
