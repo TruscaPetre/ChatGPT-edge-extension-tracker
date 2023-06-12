@@ -1,19 +1,40 @@
 console.log('content script loaded');
 
-const sendMessageButton = document.querySelector("#send-new-message-button");
+// Commit message: "Attach listener to the correct buttons" 
+
+window.addEventListener('load', function() {
+  console.log('window loaded'); 
+  const potentialButtons = document.querySelectorAll("button.absolute"  );
+  console.log("there are "+potentialButtons.length+" buttons found");
+  if (potentialButtons && potentialButtons.length > 0) { 
+    const myButton = potentialButtons[0];
+    // attach your event listener
+    myButton.addEventListener("click", () => {
+        console.log("Button was clicked!");
+        logButtonClick("send_new_message");
+    });
+}else{
+  console.error("Element for send buttone not identified");
+} 
+
+// const sendMessageButton = document.querySelector("#send-new-message-button");
 const saveSubmitButton = document.querySelector("#save-submit-button");
 
-if (sendMessageButton && saveSubmitButton) {
-  sendMessageButton.addEventListener("click", () => logButtonClick("send_new_message"));
+if (saveSubmitButton) {
   saveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
-}
+} else {
+  console.error("Element with ID 'save-submit-button' does not exist");
+} 
+});  
+
+
 
 function logButtonClick(buttonName) {
   const timestamp = new Date().toISOString();
   const logEntry = { timestamp, buttonName };
 
   // Save the log entry in local storage
-  chrome.storage.local.get("activityLog", function(data) {
+  chrome.storage.local.get("activityLog", function (data) {
     let { activityLog } = data;
     if (!activityLog) {
       activityLog = [];
@@ -27,14 +48,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "generate_report") {
     generateReport();
   }
-  if (request.action === "test"){
+  if (request.action === "test") {
     console.log("Test message received!")
   }
 });
 
 
 function generateReport() {
-  chrome.storage.local.get("activityLog", function(data) {
+  chrome.storage.local.get("activityLog", function (data) {
     const { activityLog } = data;
     const report = createReportElement(activityLog);
     document.body.appendChild(report);

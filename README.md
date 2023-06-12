@@ -20,8 +20,10 @@ Based on the logs that are generated when interacting with chatGPT, you can crea
   - Enable Developer mode
   - Click on "Load unpacked"
   - Select the project folder
-- Make sure to Activate the extension in the Extensions page
+- Make sure to Activate the extension in the Extensions page( there should be a toggle to the right of the extension entry in the list. If this toggle is grey, that means th extension is disabled. Click the toggle to enable it. When extension is enabled, the toggle should turn blue.)
 - For easier access show the extension in the sidebar
+- If extension is installed and enabled, its icon should appear there and not be greyed out.
+- Try some of the tests from the  [Testing Page](Testing.md)
 
 ## Usage
 
