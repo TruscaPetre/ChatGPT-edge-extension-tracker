@@ -4,8 +4,9 @@ console.log('content script loaded');
 
 window.addEventListener('load', function() {
   console.log('window loaded'); 
-  const potentialButtons = document.querySelectorAll("button.absolute"  );
-  console.log("there are "+potentialButtons.length+" buttons found");
+
+  const potentialButtons = document.querySelectorAll("button.absolute");
+  console.log("there are "+potentialButtons.length+" Send Message buttons found");
   if (potentialButtons && potentialButtons.length > 0) { 
     const myButton = potentialButtons[0];
     // attach your event listener
@@ -13,19 +14,39 @@ window.addEventListener('load', function() {
         console.log("Button was clicked!");
         logButtonClick("send_new_message");
     });
-}else{
-  console.error("Element for send buttone not identified");
-} 
-
-// const sendMessageButton = document.querySelector("#send-new-message-button");
-const saveSubmitButton = document.querySelector("#save-submit-button");
-
-if (saveSubmitButton) {
-  saveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
-} else {
-  console.error("Element with ID 'save-submit-button' does not exist");
-} 
+  }else{
+    console.error("Element for send buttone not identified");
+  } 
+  
 });  
+
+// Start observing the document with the configured parameters
+const observer = new MutationObserver((mutationsList, observer) => {
+  // Look through all mutations that just occurred
+  for(let mutation of mutationsList) {
+      // the added node has one or more nodes
+      if (mutation.addedNodes.length){
+        const potentialSaveSubmitButton = document.querySelectorAll("button.relative.mr-2");
+        console.log("there are "+potentialSaveSubmitButton.length+" save&submit buttons found");
+        
+        if (potentialSaveSubmitButton && potentialSaveSubmitButton.length > 0) {
+        const myButton = potentialSaveSubmitButton[0];
+        potentialSaveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
+        // attach your event listener
+        myButton.addEventListener("click", () => {
+            console.log("Button was clicked!");
+            logButtonClick("send_new_message");
+        });
+        } else {
+        console.error("Element with ID 'save-submit-button' does not exist");
+        } 
+      } 
+  }
+});
+
+// Start observing the document with the configured parameters
+observer.observe(document, { childList: true, subtree: true });
+ 
 
 
 
