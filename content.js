@@ -34,7 +34,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
           // attach your event listener
           myButton.addEventListener("click", () => {
               console.log("Button was clicked!");
-              logButtonClick("send_new_message");
+              logButtonClick("edit & submit message");
           });
         } 
       } 
@@ -46,6 +46,7 @@ observer.observe(document, { childList: true, subtree: true });
  
  
 function logButtonClick(buttonName) {
+  console.log("Button "+ buttonName +" has been pressed");
   const timestamp = new Date().toISOString();
   const logEntry = { timestamp, buttonName };
 
