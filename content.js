@@ -10,8 +10,7 @@ window.addEventListener('load', function() {
   if (potentialButtons && potentialButtons.length > 0) { 
     const myButton = potentialButtons[0];
     // attach your event listener
-    myButton.addEventListener("click", () => {
-        console.log("Button was clicked!");
+    myButton.addEventListener("click", () => { 
         logButtonClick("send_new_message");
     });
   }else{
@@ -32,8 +31,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
           const myButton = potentialSaveSubmitButton[0];
           potentialSaveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
           // attach your event listener
-          myButton.addEventListener("click", () => {
-              console.log("Button was clicked!");
+          myButton.addEventListener("click", () => { 
               logButtonClick("edit & submit message");
           });
         } 
