@@ -27,9 +27,8 @@ const observer = new MutationObserver((mutationsList, observer) => {
       // the added node has one or more nodes
       if (mutation.addedNodes.length){
         const potentialSaveSubmitButton = document.querySelectorAll("button.relative.mr-2");
-        console.log("there are "+potentialSaveSubmitButton.length+" save&submit buttons found");
-        
         if (potentialSaveSubmitButton && potentialSaveSubmitButton.length > 0) {
+          console.log("there are "+potentialSaveSubmitButton.length+" save&submit buttons found");
           const myButton = potentialSaveSubmitButton[0];
           potentialSaveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
           // attach your event listener
