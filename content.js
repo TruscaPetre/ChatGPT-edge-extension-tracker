@@ -30,15 +30,13 @@ const observer = new MutationObserver((mutationsList, observer) => {
         console.log("there are "+potentialSaveSubmitButton.length+" save&submit buttons found");
         
         if (potentialSaveSubmitButton && potentialSaveSubmitButton.length > 0) {
-        const myButton = potentialSaveSubmitButton[0];
-        potentialSaveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
-        // attach your event listener
-        myButton.addEventListener("click", () => {
-            console.log("Button was clicked!");
-            logButtonClick("send_new_message");
-        });
-        } else {
-        console.error("Element with ID 'save-submit-button' does not exist");
+          const myButton = potentialSaveSubmitButton[0];
+          potentialSaveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
+          // attach your event listener
+          myButton.addEventListener("click", () => {
+              console.log("Button was clicked!");
+              logButtonClick("send_new_message");
+          });
         } 
       } 
   }
@@ -47,9 +45,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
 // Start observing the document with the configured parameters
 observer.observe(document, { childList: true, subtree: true });
  
-
-
-
+ 
 function logButtonClick(buttonName) {
   const timestamp = new Date().toISOString();
   const logEntry = { timestamp, buttonName };
