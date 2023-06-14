@@ -29,11 +29,8 @@ const observer = new MutationObserver((mutationsList, observer) => {
         if (potentialSaveSubmitButton && potentialSaveSubmitButton.length > 0) {
           console.log("there are "+potentialSaveSubmitButton.length+" save&submit buttons found");
           const myButton = potentialSaveSubmitButton[0];
-          potentialSaveSubmitButton.addEventListener("click", () => logButtonClick("save_submit"));
-          // attach your event listener
-          myButton.addEventListener("click", () => { 
-              logButtonClick("edit & submit message");
-          });
+          // attach your event listener 
+          myButton.addEventListener("click", () => logButtonClick("edit & submit message"));
         } 
       } 
   }
