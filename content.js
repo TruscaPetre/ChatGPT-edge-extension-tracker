@@ -59,10 +59,7 @@ function logButtonClick(buttonName) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "generate_report") {
     generateReport();
-  }
-  if (request.action === "test") {
-    console.log("Test message received!")
-  }
+  } 
 });
 
 
@@ -77,9 +74,20 @@ function generateReport() {
 function createReportElement(activityLog) {
   const reportContainer = document.createElement("div");
   reportContainer.className = "report-container";
+  reportContainer.style.color = "black";
 
   const closeButton = document.createElement("button");
   closeButton.textContent = "Close";
+  closeButton.style.backgroundColor = "#4CAF50";
+  closeButton.style.border = "none";
+  closeButton.style.color = "white";
+  closeButton.style.padding = "15px 32px";
+  closeButton.style.textAlign = "center";
+  closeButton.style.textDecoration = "none";
+  closeButton.style.display = "inline-block";
+  closeButton.style.fontSize = "16px";
+  closeButton.style.margin = "4px 2px";
+  closeButton.style.cursor = "pointer";
   closeButton.onclick = () => reportContainer.remove();
   reportContainer.appendChild(closeButton);
 

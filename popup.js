@@ -3,6 +3,7 @@
 document.getElementById("generateReport").addEventListener("click", () => {
     chrome.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
       chrome.tabs.sendMessage(tabs[0].id, { action: "generate_report" });
+      window.close();
     });
   });
   
