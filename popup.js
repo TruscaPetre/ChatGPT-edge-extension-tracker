@@ -42,3 +42,16 @@ function sendMessageToContentScript(tabId, message) {
     }
   });
 }
+
+document.getElementById("resetHistory").addEventListener("click", () => {
+  if (window.confirm("Are you sure you want to reset all history? This action cannot be undone.")) {
+    chrome.storage.local.clear(() => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        console.error(error);
+      } else {
+        console.log('History has been cleared');
+      }
+    });
+  } 
+});

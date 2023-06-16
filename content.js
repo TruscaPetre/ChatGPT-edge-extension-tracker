@@ -65,8 +65,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 function generateReport() {
   chrome.storage.local.get("activityLog", function (data) {
-    console.log(data);
     const { activityLog } = data;
+    if (!activityLog){
+      alert("No activity has been logged yet!");
+      return;
+    } 
     const report = createReportElement(activityLog);
     document.body.appendChild(report);
   });
@@ -92,7 +95,7 @@ function createReportElement(activityLog) {
   closeButton.onclick = () => reportContainer.remove();
   reportContainer.appendChild(closeButton);
 
-  const reportData = aggregateReportData(activityLog);
+  const reportData = aggregateReportData(activityLog); 
   for (const [date, buttonCounts] of Object.entries(reportData)) {
     const row = document.createElement("div");
     row.className = "report-row";
