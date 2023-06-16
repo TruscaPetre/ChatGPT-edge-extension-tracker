@@ -30,7 +30,7 @@ const observer = new MutationObserver((mutationsList, observer) => {
           console.log("there are "+potentialSaveSubmitButton.length+" save&submit buttons found");
           const myButton = potentialSaveSubmitButton[0];
           // attach your event listener 
-          myButton.addEventListener("click", () => logButtonClick("edit & submit message"));
+          myButton.addEventListener("click", () => logButtonClick("edit_submit_message"));
         } 
       } 
   }
@@ -65,6 +65,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 function generateReport() {
   chrome.storage.local.get("activityLog", function (data) {
+    console.log(data);
     const { activityLog } = data;
     const report = createReportElement(activityLog);
     document.body.appendChild(report);
@@ -123,6 +124,15 @@ function aggregateReportData(activityLog) {
     reportData[date][buttonName]++;
   }
 
-  return reportData;
+  // Convert the report data to an array of [date, data] pairs
+  const reportArray = Object.entries(reportData);
+
+  // Sort the array in descending order by date
+  reportArray.sort((a, b) => new Date(b[0]) - new Date(a[0]));
+
+  // Convert the sorted array back into an object
+  const sortedReportData = Object.fromEntries(reportArray);
+
+  return sortedReportData;
 }
 
