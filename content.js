@@ -16,6 +16,30 @@ window.addEventListener('load', function() {
   }else{
     console.error("Element for send buttone not identified");
   } 
+  // TODO: ADD A new textArea Listener when the page changes, since the textArea also changes.
+  // First, select the text area using its ID.
+  const textArea = document.querySelector('#prompt-textarea');
+  if (textArea){
+    console.log("text area found!"+textArea+" Prepare to register by enter key");
+    // Then, add an event listener to it.
+    textArea.addEventListener('keydown', (event) => { 
+      // The key code for the Enter key is 13.
+      if (event.keyCode === 13) {
+          console.log("enter key pressed")
+          // If the Enter key was pressed, check if the Shift key was also pressed.
+          // This is because pressing Shift + Enter usually adds a new line in a text area instead of submitting it.
+          if (!event.shiftKey) { 
+              // Log to console and save to storage
+              console.log('Message sent via Enter key.'); 
+              // If the Shift key was not pressed along with the Enter key, consider it as a send event and log it.
+              logButtonClick('send_new_message');
+          }
+      }
+    });
+  }
+  else{
+    console.error("TextArea not found.")
+  }
   
 });  
 
