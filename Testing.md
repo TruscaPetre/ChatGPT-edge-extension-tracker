@@ -5,9 +5,11 @@ This document contains instructions for manually testing all aspects of the exte
 ## Features to be tested
 
 - Tracking "send" button. 
+- Tracking the "enter" key press when sending a message
 - Tracking "edit & respond" button.
 - Store the data locally.
 - Generate report.
+- Delete history.
 
 ## How to test each feature
 
