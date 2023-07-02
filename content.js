@@ -118,8 +118,12 @@ function createReportElement(activityLog) {
   closeButton.style.cursor = "pointer";
   closeButton.onclick = () => reportContainer.remove();
   reportContainer.appendChild(closeButton);
+  
+  console.log(activityLog);
 
-  const reportData = aggregateReportData(activityLog); 
+  const reportData = aggregateReportData(activityLog);
+   
+  console.log(reportData);
   for (const [date, buttonCounts] of Object.entries(reportData)) {
     const row = document.createElement("div");
     row.className = "report-row";
@@ -131,7 +135,7 @@ function createReportElement(activityLog) {
 
     const countElement = document.createElement("div");
     countElement.className = "report-count";
-    countElement.textContent = `Send: ${buttonCounts.send_new_message}, Save & Submit: ${buttonCounts.save_submit}`;
+    countElement.textContent = `Send: ${buttonCounts.send_new_message}, Edit & Submit: ${buttonCounts.edit_submit_message}`;
     row.appendChild(countElement);
 
     reportContainer.appendChild(row);
@@ -146,7 +150,7 @@ function aggregateReportData(activityLog) {
   for (const { timestamp, buttonName } of activityLog) {
     const date = new Date(timestamp).toLocaleDateString();
     if (!reportData[date]) {
-      reportData[date] = { send_new_message: 0, save_submit: 0 };
+      reportData[date] = { send_new_message: 0, edit_submit_message: 0 };
     }
     reportData[date][buttonName]++;
   }
